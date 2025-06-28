@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Path</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+   * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d3d3d3;
+      color: #000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #1f1f1f;
+      color: white;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    nav {
+      display: flex;
+      gap: 15px;
+    }
+    nav button {
+      background-color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .main {
+      padding: 40px;
+    }
+    .featured-section {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .featured-section img {
+      width: 30%;
+      border-radius: 8px;
+    }
+    .featured-text {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .courses-section {
+      margin-top: 30px;
+    }
+    .course-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .course-item {
+      text-align: center;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .course-item img {
+      height: 100px;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .course-item img:hover {
+      transform: scale(1.1);
+    }
+    .tab {
+      display: none;
+      animation: slideFadeOut 0.4s forwards;
+    }
+    .tab.active {
+      display: block;
+      animation: slideFadeIn 0.4s ease-in-out;
+    }
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideFadeOut {
+      from {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+    .progress-bar {
+      background-color: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .progress {
+      height: 20px;
+      background-color: #1f1f1f;
+      width: 70%;
+      color: white;
+      text-align: center;
+      line-height: 20px;
+      font-size: 12px;
+    }
+    .profile {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    #myCourses ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+	#myCourses ul li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	text-align: left;
+	background-color: #fff;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	width: 80%;
+	max-width: 600px;
+	}	
+	#myCourses ul li img {
+	width: 160px;
+	height: 100px;
+	object-fit: cover;
+	margin-right: 15px;
+	border-radius: 8px;
+	}	
+  </style>
+  <script>
+    function showTab(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+      });
+      const target = document.getElementById(tabName);
+      if (target) {
+        void target.offsetWidth;
+        target.classList.add('active');
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <h2>Pixel Path</h2>
+    </div>
+    <nav>
+      <button onclick="showTab('home')">Home</button>
+      <button onclick="showTab('myCourses')">My Courses</button>
+      <button onclick="showTab('tracker')">Tracker</button>
+      <button onclick="showTab('profile')">Profile</button>
+    </nav>
+  </header>
+
+  <div class="main">
+    <div id="home" class="tab active">
+      <section class="featured-section">
+        <img src="boosting-employee-performance	.png" alt="Featured Course">
+        <div class="featured-text">
+          Kickstart your learning with our top courses—practical, easy to follow, and built to boost your skills.
+        </div>
+      </section>
+      <section class="courses-section">
+        <h3>Courses from your Recent Interaction with Web Design:</h3>
+        <div class="course-list">
+          <div class="course-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++">
+            <p>C++</p>
+          </div>
+          <div class="course-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
+            <p>HTML</p>
+          </div>
+          <div class="course-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+            <p>JavaScript</p>
+          </div>
+          <div class="course-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
+            <p>CSS</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="myCourses" class="tab">
+      <h3>My Courses</h3>
+      <ul>
+        <li><img src="web-design.jpg" alt="Web Design 101"> Web Design 101</li>
+        <li><img src="advanced-javascript-concepts.png" alt="Advanced JavaScript"> Advanced JavaScript</li>
+        <li><img src="css-responsive.jpg" alt="Responsive CSS Techniques"> Responsive CSS Techniques</li>
+        <li><img src="survey_form.png" alt="Project-Based HTML"> Project-Based HTML</li>
+      </ul>
+    </div>
+
+    <div id="tracker" class="tab">
+      <h3>Progress Tracker</h3>
+      <p>Web Design 101</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 70%;">70%</div>
+      </div>
+      <p>Advanced JavaScript</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 45%;">45%</div>
+      </div>
+      <p>Responsive CSS Techniques</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 60%;">60%</div>
+      </div>
+      <p>Project-Based HTML</p>
+      <div class="progress-bar">
+        <div class="progress" style="width: 85%;">85%</div>
+      </div>
+    </div>
+
+    <div id="profile" class="tab">
+      <h3>User Profile</h3>
+      <div class="profile">
+        <p><strong>Name:</strong> Jairus Galicia</p>
+        <p><strong>Email:</strong> jairus@example.com</p>
+        <p><strong>Member since:</strong> January 2024</p>
+        <p><strong>Username:</strong> jairusg</p>
+        <p><strong>Location:</strong> Quezon City, Philippines</p>
+        <p><strong>Enrolled Courses:</strong> 4</p>
+        <p><strong>Account Type:</strong> Student</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
