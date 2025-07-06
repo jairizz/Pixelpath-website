@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pixel Path</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-   * {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -16,6 +16,49 @@
       background-color: #d3d3d3;
       color: #000;
     }
+    .hidden {
+      display: none;
+    }
+
+    /* LOGIN PAGE STYLES */
+    .login-page {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1f1f1f;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .login-box button {
+      background-color: #1f1f1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+
+    /* APP STYLES (copied from your existing CSS) */
     header {
       display: flex;
       justify-content: space-between;
@@ -105,16 +148,6 @@
         transform: translateY(0);
       }
     }
-    @keyframes slideFadeOut {
-      from {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      to {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-    }
     .progress-bar {
       background-color: #eee;
       border-radius: 20px;
@@ -144,27 +177,136 @@
       align-items: center;
       gap: 20px;
     }
-	#myCourses ul li {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	text-align: left;
-	background-color: #fff;
-	padding: 15px;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-	width: 80%;
-	max-width: 600px;
-	}	
-	#myCourses ul li img {
-	width: 160px;
-	height: 100px;
-	object-fit: cover;
-	margin-right: 15px;
-	border-radius: 8px;
-	}	
+    #myCourses ul li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      width: 80%;
+      max-width: 600px;
+    }
+    #myCourses ul li img {
+      width: 160px;
+      height: 100px;
+      object-fit: cover;
+      margin-right: 15px;
+      border-radius: 8px;
+    }
   </style>
+</head>
+<body>
+
+  <!-- LOGIN PAGE -->
+  <div class="login-page" id="loginPage">
+    <div class="login-box">
+      <h2>Login to Pixel Path</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <!-- MAIN APP -->
+  <div id="app" class="hidden">
+    <header>
+      <div class="logo">
+        <div class="logo-circle"></div>
+        <h2>Pixel Path</h2>
+      </div>
+      <nav>
+        <button onclick="showTab('home')">Home</button>
+        <button onclick="showTab('myCourses')">My Courses</button>
+        <button onclick="showTab('tracker')">Tracker</button>
+        <button onclick="showTab('profile')">Profile</button>
+      </nav>
+    </header>
+
+    <div class="main">
+      <div id="home" class="tab active">
+        <section class="featured-section">
+          <img src="boosting-employee-performance.png" alt="Featured Course">
+          <div class="featured-text">
+            Kickstart your learning with our top courses—practical, easy to follow, and built to boost your skills.
+          </div>
+        </section>
+        <section class="courses-section">
+          <h3>Courses from your Recent Interaction with Web Design:</h3>
+          <div class="course-list">
+            <div class="course-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++">
+              <p>C++</p>
+            </div>
+            <div class="course-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
+              <p>HTML</p>
+            </div>
+            <div class="course-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+              <p>JavaScript</p>
+            </div>
+            <div class="course-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
+              <p>CSS</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="myCourses" class="tab">
+        <h3>My Courses</h3>
+        <ul>
+          <li><img src="web-design.jpg" alt="Web Design 101"> Web Design 101</li>
+          <li><img src="advanced-javascript-concepts.png" alt="Advanced JavaScript"> Advanced JavaScript</li>
+          <li><img src="css-responsive.jpg" alt="Responsive CSS Techniques"> Responsive CSS Techniques</li>
+          <li><img src="survey_form.png" alt="Project-Based HTML"> Project-Based HTML</li>
+        </ul>
+      </div>
+
+      <div id="tracker" class="tab">
+        <h3>Progress Tracker</h3>
+        <p>Web Design 101</p>
+        <div class="progress-bar"><div class="progress" style="width: 70%;">70%</div></div>
+        <p>Advanced JavaScript</p>
+        <div class="progress-bar"><div class="progress" style="width: 45%;">45%</div></div>
+        <p>Responsive CSS Techniques</p>
+        <div class="progress-bar"><div class="progress" style="width: 60%;">60%</div></div>
+        <p>Project-Based HTML</p>
+        <div class="progress-bar"><div class="progress" style="width: 85%;">85%</div></div>
+      </div>
+
+      <div id="profile" class="tab">
+        <h3>User Profile</h3>
+        <div class="profile">
+          <p><strong>Name:</strong> Jairus Galicia</p>
+          <p><strong>Email:</strong> jairus@example.com</p>
+          <p><strong>Member since:</strong> January 2024</p>
+          <p><strong>Username:</strong> jairusg</p>
+          <p><strong>Location:</strong> Quezon City, Philippines</p>
+          <p><strong>Enrolled Courses:</strong> 4</p>
+          <p><strong>Account Type:</strong> Student</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+
+      // Dummy login logic (replace with backend if needed)
+      if (username === "jairusg" && password === "1234") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("app").classList.remove("hidden");
+      } else {
+        alert("Incorrect username or password. Try: jairusg / 1234");
+      }
+    }
+
     function showTab(tabName) {
       const tabs = document.querySelectorAll('.tab');
       tabs.forEach(tab => {
@@ -177,94 +319,5 @@
       }
     }
   </script>
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <div class="logo-circle"></div>
-      <h2>Pixel Path</h2>
-    </div>
-    <nav>
-      <button onclick="showTab('home')">Home</button>
-      <button onclick="showTab('myCourses')">My Courses</button>
-      <button onclick="showTab('tracker')">Tracker</button>
-      <button onclick="showTab('profile')">Profile</button>
-    </nav>
-  </header>
-
-  <div class="main">
-    <div id="home" class="tab active">
-      <section class="featured-section">
-        <img src="boosting-employee-performance	.png" alt="Featured Course">
-        <div class="featured-text">
-          Kickstart your learning with our top courses—practical, easy to follow, and built to boost your skills.
-        </div>
-      </section>
-      <section class="courses-section">
-        <h3>Courses from your Recent Interaction with Web Design:</h3>
-        <div class="course-list">
-          <div class="course-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" alt="C++">
-            <p>C++</p>
-          </div>
-          <div class="course-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML">
-            <p>HTML</p>
-          </div>
-          <div class="course-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
-            <p>JavaScript</p>
-          </div>
-          <div class="course-item">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS">
-            <p>CSS</p>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div id="myCourses" class="tab">
-      <h3>My Courses</h3>
-      <ul>
-        <li><img src="web-design.jpg" alt="Web Design 101"> Web Design 101</li>
-        <li><img src="advanced-javascript-concepts.png" alt="Advanced JavaScript"> Advanced JavaScript</li>
-        <li><img src="css-responsive.jpg" alt="Responsive CSS Techniques"> Responsive CSS Techniques</li>
-        <li><img src="survey_form.png" alt="Project-Based HTML"> Project-Based HTML</li>
-      </ul>
-    </div>
-
-    <div id="tracker" class="tab">
-      <h3>Progress Tracker</h3>
-      <p>Web Design 101</p>
-      <div class="progress-bar">
-        <div class="progress" style="width: 70%;">70%</div>
-      </div>
-      <p>Advanced JavaScript</p>
-      <div class="progress-bar">
-        <div class="progress" style="width: 45%;">45%</div>
-      </div>
-      <p>Responsive CSS Techniques</p>
-      <div class="progress-bar">
-        <div class="progress" style="width: 60%;">60%</div>
-      </div>
-      <p>Project-Based HTML</p>
-      <div class="progress-bar">
-        <div class="progress" style="width: 85%;">85%</div>
-      </div>
-    </div>
-
-    <div id="profile" class="tab">
-      <h3>User Profile</h3>
-      <div class="profile">
-        <p><strong>Name:</strong> Jairus Galicia</p>
-        <p><strong>Email:</strong> jairus@example.com</p>
-        <p><strong>Member since:</strong> January 2024</p>
-        <p><strong>Username:</strong> jairusg</p>
-        <p><strong>Location:</strong> Quezon City, Philippines</p>
-        <p><strong>Enrolled Courses:</strong> 4</p>
-        <p><strong>Account Type:</strong> Student</p>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
