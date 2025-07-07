@@ -27,6 +27,13 @@
       display: block;
       animation: slideFadeIn 0.4s ease-in-out;
     }
+    .progress {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .progress:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
     @keyframes slideFadeIn {
       0% {
         opacity: 0;
