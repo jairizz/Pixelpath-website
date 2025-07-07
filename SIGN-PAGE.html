@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Pixel Path</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1f1f1f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signup-box {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .signup-box h2 {
+      margin-bottom: 20px;
+    }
+    .signup-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .signup-box button {
+      background-color: #1f1f1f;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      width: 100%;
+    }
+    .button-link {
+     display: block;
+    background-color: #1f1f1f;
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    .button-link:hover {
+    background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Create a New Account</h2>
+    <input type="text" placeholder="Full Name" required />
+    <input type="email" placeholder="Email" required />
+    <input type="text" placeholder="Username" required />
+    <input type="password" placeholder="Password" required />
+    <button onclick="window.location.href='FINAL-WEBSITE.html'">Sign Up</button>
+    <a href="LOGIN-WEBSITE.html" class="button-link">Back to Login</a>
+  </div>
+</body>
+</html>
