@@ -27,52 +27,140 @@
       display: block;
       animation: slideFadeIn 0.4s ease-in-out;
     }
-    .progress {
+    .card-img-top {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .progress {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   .progress:hover {
     transform: scale(1.03);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-    @keyframes slideFadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+  .fade-out {
+    animation: fadeOut 0.5s forwards;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
     }
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+  .tab {
+    display: none;
+    animation: fadeOut 0.4s forwards;
+  }
+  .tab.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+   .card-img-top {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .progress {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .progress:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .fade-out {
+    animation: fadeOut 0.5s forwards;
+  }
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
+  .tab {
+    display: none;
+    animation: fadeOut 0.4s forwards;
+  }
+  .tab.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  body.fadeout {
+    animation: pageFadeOut 0.5s forwards;
+  }
+  @keyframes pageFadeOut {
+    to {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+  }
   </style>
 </head>
 <body>
   <script>
     if (sessionStorage.getItem("loggedIn") !== "true") {
-      window.location.href = "login.html";
+      window.location.href = "LOGIN-WEBSITE.html";
     }
-
     function showTab(tabName) {
-      const tabs = document.querySelectorAll('.tab');
-      tabs.forEach(tab => tab.classList.remove('active'));
-      document.getElementById(tabName).classList.add('active');
-    }
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabName).classList.add('active');
+  }
+    function animateAndRedirect(element, url) {
+    element.closest(".card").classList.add("fade-out");
+    setTimeout(() => {
+      window.location.href = url;
+    }, 500);
+  }
   </script>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
-    <a href="dashboard.html" class="navbar-brand d-flex align-items-center">
-      <div class="logo-circle"></div>
-      <span class="fw-bold">Pixel Path</span>
-    </a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto gap-2">
-        <li class="nav-item"><button class="btn btn-light" onclick="showTab('home')">Home</button></li>
-        <li class="nav-item"><button class="btn btn-light" onclick="showTab('myCourses')">My Courses</button></li>
-        <li class="nav-item"><button class="btn btn-light" onclick="showTab('tracker')">Tracker</button></li>
-        <li class="nav-item"><button class="btn btn-light" onclick="showTab('profile')">Profile</button></li>
-      </ul>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+        <a href="dashboard.html" class="navbar-brand d-flex align-items-center">
+        <div class="logo-circle"></div>
+        <span class="fw-bold">Pixel Path</span>
+        </a>
+        <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item"><button class="btn btn-light" onclick="showTab('home')">Home</button></li>
+            <li class="nav-item"><button class="btn btn-light" onclick="showTab('myCourses')">My Courses</button></li>
+            <li class="nav-item"><button class="btn btn-light" onclick="showTab('tracker')">Tracker</button></li>
+            <li class="nav-item"><button class="btn btn-light" onclick="showTab('profile')">Profile</button></li>
+        </ul>
+        </div>
+    </nav>
 
   <div class="container py-5">
     <div id="home" class="tab active">
@@ -87,7 +175,7 @@
       <h4 class="text-center text-md-start">Courses from your Recent Interaction with Web Design:</h4>
       <div class="row mt-4">
         <div class="col-6 col-md-3 mb-4">
-          <a href="https://www.codecademy.com/learn/learn-c-plus-plus" class="text-decoration-none text-dark">
+          <a href="C++-PAGE.html" class="text-decoration-none text-dark" onclick="animateAndRedirect(this, 'cpp-course.html')">
             <div class="card h-100 text-center shadow-sm">
               <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" class="card-img-top p-3 mx-auto d-block" alt="C++" style="width: 80px; height: 80px; object-fit: contain;">
               <div class="card-body">
@@ -97,7 +185,7 @@
           </a>
         </div>
         <div class="col-6 col-md-3 mb-4">
-          <a href="https://www.codecademy.com/learn/learn-html" class="text-decoration-none text-dark">
+          <a href="HTML-PAGE.html" class="text-decoration-none text-dark"  onclick="animateAndRedirect(this, 'html-course.html')">
             <div class="card h-100 text-center shadow-sm">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" class="card-img-top p-3 mx-auto d-block" alt="HTML" style="width: 80px; height: 80px; object-fit: contain;">
               <div class="card-body">
@@ -107,7 +195,7 @@
           </a>
         </div>
         <div class="col-6 col-md-3 mb-4">
-          <a href="https://www.codecademy.com/learn/introduction-to-javascript" class="text-decoration-none text-dark">
+          <a href="JAVSCRIPT-PAGE.html" class="text-decoration-none text-dark"onclick="animateAndRedirect(this, 'javascript-course.html')">
             <div class="card h-100 text-center shadow-sm">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="card-img-top p-3 mx-auto d-block" alt="JavaScript" style="width: 80px; height: 80px; object-fit: contain;">
               <div class="card-body">
@@ -117,7 +205,7 @@
           </a>
         </div>
         <div class="col-6 col-md-3 mb-4">
-          <a href="https://www.codecademy.com/learn/learn-css" class="text-decoration-none text-dark">
+          <a href="CSS-PAGE.html" class="text-decoration-none text-dark" onclick="animateAndRedirect(this, 'css-course.html')">
             <div class="card h-100 text-center shadow-sm">
               <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" class="card-img-top p-3 mx-auto d-block" alt="CSS" style="width: 80px; height: 80px; object-fit: contain;">
               <div class="card-body">
