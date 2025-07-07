@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pixel Path Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #d3d3d3;
+      color: #000;
+    }
+    .logo-circle {
+      width: 50px;
+      height: 50px;
+      background-color: #ccc;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .tab {
+      display: none;
+    }
+    .tab.active {
+      display: block;
+      animation: slideFadeIn 0.4s ease-in-out;
+    }
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    if (sessionStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+
+    function showTab(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabName).classList.add('active');
+    }
+  </script>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a href="dashboard.html" class="navbar-brand d-flex align-items-center">
+      <div class="logo-circle"></div>
+      <span class="fw-bold">Pixel Path</span>
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item"><button class="btn btn-light" onclick="showTab('home')">Home</button></li>
+        <li class="nav-item"><button class="btn btn-light" onclick="showTab('myCourses')">My Courses</button></li>
+        <li class="nav-item"><button class="btn btn-light" onclick="showTab('tracker')">Tracker</button></li>
+        <li class="nav-item"><button class="btn btn-light" onclick="showTab('profile')">Profile</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container py-5">
+    <div id="home" class="tab active">
+      <div class="row align-items-center mb-5">
+        <div class="col-12 col-lg-6 mb-4 mb-lg-0">
+          <img src="boosting-employee-performance.png" class="img-fluid rounded w-100" alt="Featured Course">
+        </div>
+        <div class="col-12 col-lg-6">
+          <h3 class="fw-bold text-center text-lg-start">Kickstart your learning with our top courses—practical, easy to follow, and built to boost your skills.</h3>
+        </div>
+      </div>
+      <h4 class="text-center text-md-start">Courses from your Recent Interaction with Web Design:</h4>
+      <div class="row mt-4">
+        <div class="col-6 col-md-3 mb-4">
+          <a href="https://www.codecademy.com/learn/learn-c-plus-plus" class="text-decoration-none text-dark">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" class="card-img-top p-3 mx-auto d-block" alt="C++" style="width: 80px; height: 80px; object-fit: contain;">
+              <div class="card-body">
+                <h5 class="card-title">C++</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <a href="https://www.codecademy.com/learn/learn-html" class="text-decoration-none text-dark">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" class="card-img-top p-3 mx-auto d-block" alt="HTML" style="width: 80px; height: 80px; object-fit: contain;">
+              <div class="card-body">
+                <h5 class="card-title">HTML</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <a href="https://www.codecademy.com/learn/introduction-to-javascript" class="text-decoration-none text-dark">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" class="card-img-top p-3 mx-auto d-block" alt="JavaScript" style="width: 80px; height: 80px; object-fit: contain;">
+              <div class="card-body">
+                <h5 class="card-title">JavaScript</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3 mb-4">
+          <a href="https://www.codecademy.com/learn/learn-css" class="text-decoration-none text-dark">
+            <div class="card h-100 text-center shadow-sm">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" class="card-img-top p-3 mx-auto d-block" alt="CSS" style="width: 80px; height: 80px; object-fit: contain;">
+              <div class="card-body">
+                <h5 class="card-title">CSS</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <div id="myCourses" class="tab">
+      <h3 class="mb-4">My Courses</h3>
+      <ul class="list-group">
+        <li class="list-group-item d-flex align-items-center">
+          <img src="web-design.jpg" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
+          Web Design 101
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <img src="advanced-javascript-concepts.png" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
+          Advanced JavaScript
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <img src="css-responsive.jpg" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
+          Responsive CSS Techniques
+        </li>
+        <li class="list-group-item d-flex align-items-center">
+          <img src="survey_form.png" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
+          Project-Based HTML
+        </li>
+      </ul>
+    </div>
+
+    <div id="tracker" class="tab">
+      <h3 class="mb-4">Progress Tracker</h3>
+      <div class="mb-3">
+        <p>Web Design 101</p>
+        <div class="progress">
+          <div class="progress-bar bg-dark" style="width: 70%">70%</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <p>Advanced JavaScript</p>
+        <div class="progress">
+          <div class="progress-bar bg-dark" style="width: 45%">45%</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <p>Responsive CSS Techniques</p>
+        <div class="progress">
+          <div class="progress-bar bg-dark" style="width: 60%">60%</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <p>Project-Based HTML</p>
+        <div class="progress">
+          <div class="progress-bar bg-dark" style="width: 85%">85%</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="profile" class="tab">
+      <h3 class="mb-4">User Profile</h3>
+      <div class="card p-4 shadow">
+        <ul class="list-unstyled">
+          <li><strong>Name:</strong> Jairus Galicia</li>
+          <li><strong>Email:</strong> jairus@example.com</li>
+          <li><strong>Member since:</strong> January 2024</li>
+          <li><strong>Username:</strong> jairusg</li>
+          <li><strong>Location:</strong> Quezon City, Philippines</li>
+          <li><strong>Enrolled Courses:</strong> 4</li>
+          <li><strong>Account Type:</strong> Student</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
