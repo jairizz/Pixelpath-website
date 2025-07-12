@@ -174,6 +174,27 @@
       </div>
       <h4 class="text-center text-md-start">Courses from your Recent Interaction with Web Design:</h4>
       <div class="row mt-4">
+        <div class="filter-section mb-4">
+  <label for="filter" class="form-label fw-semibold">Filter by Topic:</label>
+  <select id="filter" class="form-select w-auto d-inline-block ms-2" onchange="filterCourses()">
+    <option value="all">All</option>
+    <option value="html">HTML</option>
+    <option value="css">CSS</option>
+    <option value="javascript">JavaScript</option>
+    <option value="c++">C++</option>
+  </select>
+</div>
+<script>
+function filterCourses() {
+  const filter = document.getElementById("filter").value;
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    const title = card.querySelector(".card-title").textContent.toLowerCase();
+    card.style.display = filter === "all" || title.includes(filter) ? "block" : "none";
+  });
+}
+</script>
+
         <div class="col-6 col-md-3 mb-4">
           <a href="C++-PAGE.html" class="text-decoration-none text-dark" onclick="animateAndRedirect(this, 'cpp-course.html')">
             <div class="card h-100 text-center shadow-sm">
@@ -216,71 +237,127 @@
         </div>
       </div>
     </div>
-  
-    <div id="myCourses" class="tab">
-      <h3 class="mb-4">My Courses</h3>
-      <ul class="list-group">
-        <li class="list-group-item d-flex align-items-center">
-          <img src="web-design.jpg" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
-          Web Design 101
-        </li>
-        <li class="list-group-item d-flex align-items-center">
-          <img src="advanced-javascript-concepts.png" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
-          Advanced JavaScript
-        </li>
-        <li class="list-group-item d-flex align-items-center">
-          <img src="css-responsive.jpg" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
-          Responsive CSS Techniques
-        </li>
-        <li class="list-group-item d-flex align-items-center">
-          <img src="survey_form.png" class="img-thumbnail me-3" style="width:160px; height:100px; object-fit:cover;">
-          Project-Based HTML
-        </li>
-      </ul>
-    </div>
+   <div id="myCourses" class="tab">
+  <h3 class="mb-4">My Courses</h3>
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>
+        <img src="web-design.jpg" class="img-thumbnail me-3" style="width:120px; height:80px; object-fit:cover;">
+        Web Design 101
+      </span>
+      <a href="web-design-course.html" class="btn btn-sm btn-dark">View Course</a>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>
+        <img src="advanced-javascript-concepts.png" class="img-thumbnail me-3" style="width:120px; height:80px; object-fit:cover;">
+        Advanced JavaScript
+      </span>
+      <a href="advanced-javascript.html" class="btn btn-sm btn-dark">View Course</a>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>
+        <img src="css-responsive.jpg" class="img-thumbnail me-3" style="width:120px; height:80px; object-fit:cover;">
+        Responsive CSS Techniques
+      </span>
+      <a href="responsive-css.html" class="btn btn-sm btn-dark">View Course</a>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <span>
+        <img src="survey_form.png" class="img-thumbnail me-3" style="width:120px; height:80px; object-fit:cover;">
+        Project-Based HTML
+      </span>
+      <a href="project-html.html" class="btn btn-sm btn-dark">View Course</a>
+    </li>
+  </ul>
+</div>
 
-    <div id="tracker" class="tab">
-      <h3 class="mb-4">Progress Tracker</h3>
-      <div class="mb-3">
-        <p>Web Design 101</p>
-        <div class="progress">
-          <div class="progress-bar bg-dark" style="width: 70%">70%</div>
-        </div>
-      </div>
-      <div class="mb-3">
-        <p>Advanced JavaScript</p>
-        <div class="progress">
-          <div class="progress-bar bg-dark" style="width: 45%">45%</div>
-        </div>
-      </div>
-      <div class="mb-3">
-        <p>Responsive CSS Techniques</p>
-        <div class="progress">
-          <div class="progress-bar bg-dark" style="width: 60%">60%</div>
-        </div>
-      </div>
-      <div class="mb-3">
-        <p>Project-Based HTML</p>
-        <div class="progress">
-          <div class="progress-bar bg-dark" style="width: 85%">85%</div>
-        </div>
-      </div>
+<div id="tracker" class="tab">
+  <h3 class="mb-4">Progress Tracker</h3>
+  <p><strong>You’re doing great, Jairus! Just one more step to unlock your title:</strong> <em>Junior Web Dev</em> 🎯</p>
+  <div class="mb-3">
+    <p><strong>Web Design 101</strong> (Time Spent: 2h 15m)</p>
+    <div class="progress">
+      <div class="progress-bar bg-dark" style="width: 70%">70%</div>
     </div>
-
-    <div id="profile" class="tab">
-      <h3 class="mb-4">User Profile</h3>
-      <div class="card p-4 shadow">
-        <ul class="list-unstyled">
-          <li><strong>Name:</strong> Jairus Galicia</li>
-          <li><strong>Email:</strong> jairus@example.com</li>
-          <li><strong>Member since:</strong> January 2024</li>
-          <li><strong>Username:</strong> jairusg</li>
-          <li><strong>Location:</strong> Quezon City, Philippines</li>
-          <li><strong>Enrolled Courses:</strong> 4</li>
-          <li><strong>Account Type:</strong> Student</li>
-        </ul>
-      </div>
-    </div>
+    <ul class="small text-muted">
+      <li>✔ HTML Basics</li>
+      <li>✔ CSS Fundamentals</li>
+      <li>✖ Responsive Layouts</li>
+      <li>✖ Final Project</li>
+    </ul>
   </div>
+  <div class="mb-3">
+    <p><strong>Advanced JavaScript</strong> (Time Spent: 1h 10m)</p>
+    <div class="progress">
+      <div class="progress-bar bg-dark" style="width: 45%">45%</div>
+    </div>
+    <ul class="small text-muted">
+      <li>✔ Functions</li>
+      <li>✔ DOM Manipulation</li>
+      <li>✖ Events & Handlers</li>
+      <li>✖ Final Project</li>
+    </ul>
+  </div>
+  <div class="mb-3">
+    <p><strong>Responsive CSS Techniques</strong> (Time Spent: 45m)</p>
+    <div class="progress">
+      <div class="progress-bar bg-dark" style="width: 60%">60%</div>
+    </div>
+    <ul class="small text-muted">
+      <li>✔ Media Queries</li>
+      <li>✔ Flexbox</li>
+      <li>✖ Grid System</li>
+      <li>✖ Final Project</li>
+    </ul>
+  </div>
+  <div class="mb-3">
+    <p><strong>Project-Based HTML</strong> (Time Spent: 30m)</p>
+    <div class="progress">
+      <div class="progress-bar bg-dark" style="width: 85%">85%</div>
+    </div>
+    <ul class="small text-muted">
+      <li>✔ Semantic Tags</li>
+      <li>✔ Forms</li>
+      <li>✔ Inputs & Validation</li>
+      <li>✖ Final Project</li>
+    </ul>
+  </div>
+</div> 
+
+<div id="profile" class="tab">
+  <h3 class="mb-4">User Profile</h3>
+  <div class="card p-4 shadow">
+    <div style="text-align:center;">
+      <img src="galicia.jpg" alt="Profile Image" style="width:120px; height:120px; border-radius:50%; margin-bottom:15px;">
+      <p><strong>Nickname:</strong> <input type="text" value="Jairus" style="padding:4px; border-radius:6px; border:1px solid #ccc;"></p>
+    </div>
+    <ul class="list-unstyled mt-3">
+      <li><strong>Name:</strong> Jairus Galicia</li>
+      <li><strong>Email:</strong> jairus@example.com</li>
+      <li><strong>Username:</strong> jairusg</li>
+      <li><strong>Location:</strong> Quezon City, Philippines</li>
+      <li><strong>Enrolled Courses:</strong> 4</li>
+      <li><strong>Account Type:</strong> Student</li>
+      <li><strong>Title:</strong> Aspiring Developer (Complete 3 courses to unlock "Junior Web Dev")</li>
+    </ul>
+  </div>
+</div>
+<div class="faq-section" style="margin-top: 40px;">
+  <h4 style="font-weight:600; text-align:center; margin-bottom: 20px;">Frequently Asked Questions</h4>
+  <div style="max-width:700px; margin: 0 auto;">
+    <details style="padding:12px 18px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px; background: #f9f9f9;">
+      <summary style="font-weight:600; cursor:pointer;">How do I mark a course as completed?</summary>
+      <p style="margin-top:10px; font-size: 15px; color:#333;">You can click the "Mark as Done" button in each lesson. Your progress is automatically saved using local storage.</p>
+    </details>
+    <details style="padding:12px 18px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px; background: #f9f9f9;">
+      <summary style="font-weight:600; cursor:pointer;">Can I access the courses offline?</summary>
+      <p style="margin-top:10px; font-size: 15px; color:#333;">Some course progress is saved locally, but full content access requires an internet connection.</p>
+    </details>
+    <details style="padding:12px 18px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9;">
+      <summary style="font-weight:600; cursor:pointer;">How does progress tracking work?</summary>
+      <p style="margin-top:10px; font-size: 15px; color:#333;">We use JavaScript's local storage to save your completion status and quiz results.</p>
+    </details>
+  </div>
+</div>
 </body>
 </html>
