@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,49 +21,64 @@
       padding: 40px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      text-align: center;
+      text-align: left;
       max-width: 500px;
       width: 90%;
     }
-    .premium-box h2 {
-      margin-bottom: 15px;
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
     }
-    .premium-box p {
-      font-size: 14px;
-      margin-bottom: 20px;
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
     }
-    .premium-box button {
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 5px;
+    }
+    button {
       background-color: #1f1f1f;
       color: white;
       border: none;
-      padding: 12px 20px;
+      padding: 12px;
+      margin-top: 20px;
       border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
       width: 100%;
     }
-     .button-link {
-     display: block;
-    background-color: #1f1f1f;
-    color: white;
-    text-align: center;
-    padding: 12px 20px;
-    margin-top: 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    }
-    .button-link:hover {
-    background-color: #333;
+    button:hover {
+      background-color: #333;
     }
   </style>
 </head>
 <body>
   <div class="premium-box">
     <h2>Upgrade to Premium</h2>
-    <p>Enjoy unlimited access to all Pixel Path courses, exclusive content, certification programs, and early access to new features.</p>
-    <button onclick="alert('Thank you for choosing Premium!')">Get Premium</button>
-    <button class="button-link" onclick="window.location.href='LOGIN-WEBSITE.html'">Back to Login</button>
+    <p style="text-align:center;">Enjoy unlimited access to all courses, exclusive content, and certificates.</p>
+    <form onsubmit="submitPremium(event)">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="method">Payment Method</label>
+      <select id="method" name="method" required>
+        <option value="" disabled selected>Select a payment method</option>
+        <option value="gcash">GCash</option>
+        <option value="paypal">PayPal</option>
+        <option value="card">Credit/Debit Card</option>
+      </select>
+
+      <label for="details">Account/Card Details</label>
+      <input type="text" id="details" name="details" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+
+      <button type="submit">Upgrade to Premium</button>
+    </form>
   </div>
-</body>
-</html>
