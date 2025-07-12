@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Pixel Path</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -10,18 +9,36 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #1f1f1f;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
     }
-    .login-box {
+    .login-container {
+      display: flex;
       background: white;
-      padding: 40px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      max-width: 800px;
       width: 100%;
-      max-width: 400px;
+    }
+    .intro-section {
+      background-color: #1f1f1f;
+      color: white;
+      padding: 40px;
+      flex: 1;
+    }
+    .intro-section h2 {
+      margin-bottom: 20px;
+    }
+    .intro-section p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .login-box {
+      padding: 40px;
+      flex: 1;
       text-align: center;
     }
     .login-box h2 {
@@ -44,40 +61,46 @@
       font-weight: bold;
       width: 100%;
     }
-    .card-img-top {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover .card-img-top {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  .login-bttn {
-  display: block;
-  background-color: #1f1f1f;
-  color: white;
-  text-align: center;
-  padding: 12px 20px;
-  margin-top: 12px; /* adds vertical space */
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  width: 100%; /* makes them all the same width */
-  box-sizing: border-box;
-  }
-  .login-btn:hover {
-    background-color: #333;
-  }
+    .login-box button:hover {
+      background-color: #333;
+    }
+    .action-buttons {
+      margin-top: 15px;
+    }
+    .action-buttons a {
+      display: block;
+      margin-top: 10px;
+      background-color: #1f1f1f;
+      color: white;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .action-buttons a:hover {
+      background-color: #333;
+    }
   </style>
 </head>
 <body>
-  <div class="login-box">
-    <h2>Login to Pixel Path</h2>
-    <input type="text" id="username" placeholder="Username" required />
-    <input type="password" id="password" placeholder="Password" required />
-    <button class="login-bttn" onclick="login()">Login</button>
-    <a class="login-bttn" href="SIGNUP-PAGE.html">Sign Up</button></a>
-    <a button class="login-bttn" href="PREMIUM-PAGE.html">Upgrade to Premium</button></a>
+  <div class="login-container">
+    <div class="intro-section">
+      <h2>Welcome to Pixel Path</h2>
+      <p>Pixel Path is your gateway to mastering digital skills. Whether you're a student, a recent graduate, or a working professional, our platform offers structured learning paths, interactive quizzes, and progress tracking to help you grow in your career. Let's shape your digital future together!</p>
     </div>
+    <div class="login-box">
+      <h2>Login to Pixel Path</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button onclick="login()">Login</button>
+      <div class="action-buttons">
+        <a href="SIGNUP-PAGE.html">Sign Up</a>
+        <a href="PREMIUM-PAGE.html">Upgrade to Premium</a>
+      </div>
+    </div>
+  </div>
+
   <script>
     function login() {
       const username = document.getElementById("username").value.trim();
